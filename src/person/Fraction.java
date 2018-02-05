@@ -70,7 +70,7 @@ public class Fraction {
      * 4/8 => 1/2
      */
     public void reduce(){
-        
+         
     }
     
     public Fraction times(Fraction that){
