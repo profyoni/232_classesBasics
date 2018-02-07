@@ -1,5 +1,7 @@
 package person;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * A fraction with a numerator and denominator. No arg c-tor
  * will instantiate a fraction with a numerator of 0 and denominator of 1
@@ -12,6 +14,7 @@ package person;
  * 
  * 
  */
+
 public class Fraction {
     private int numerator, denominator;
     
@@ -71,6 +74,22 @@ public class Fraction {
      */
     public void reduce(){
          
+    }
+    public Fraction plus(Fraction that){
+        return new Fraction();
+    }
+    
+    public Fraction minus(Fraction that){
+        //TODO 
+        throw new NotImplementedException();
+    }
+    
+    public Fraction dividedBy(Fraction that){
+        throw new NotImplementedException();
+    }
+    
+    public Fraction negate(){
+        throw new NotImplementedException();
     }
     
     public Fraction times(Fraction that){
