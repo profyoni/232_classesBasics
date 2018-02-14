@@ -1,7 +1,5 @@
 package person;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * A fraction with a numerator and denominator. No arg c-tor
  * will instantiate a fraction with a numerator of 0 and denominator of 1
@@ -13,10 +11,26 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * toString return e.g. "3 / 4"
  * 
  * 
- */
+ */ 
+class MathLib
+{
+    /**
+     * Doubles the fraction
+     * @param f 
+     */
+    public static void doubleMe(Fraction f){
+        f.setNumerator( f.getNumerator() * 2);        
+    }
+}
+
 
 public class Fraction {
     private int numerator, denominator;
+    
+    public Fraction(Fraction that){        
+        this.numerator = that.numerator;
+        this.denominator = that.denominator;
+    }
     
     public Fraction(int numerator, int denominator){
         
@@ -81,15 +95,15 @@ public class Fraction {
     
     public Fraction minus(Fraction that){
         //TODO 
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
     
     public Fraction dividedBy(Fraction that){
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
     
     public Fraction negate(){
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
     
     public Fraction times(Fraction that){
