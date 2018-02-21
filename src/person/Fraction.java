@@ -71,6 +71,12 @@ public class Fraction {
                 ? numerator + ""
                 : String.format("%d /  %d", numerator, denominator);
     }
+    
+    @Override
+    public boolean equals(Object o){
+        Fraction that = (Fraction) o;
+        return this.numerator * that.denominator == that.numerator * this.denominator;
+    }
 
     private void validation() {
         if (this.denominator==0)
