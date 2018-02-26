@@ -1,17 +1,73 @@
 package person;
 
+/**
+ * Immutable Date can be shared by 2 objects with nbo need for deep copy
+ * fields are final, no setters.. See Effective Java for more details
+ */
 class Date // implement with get/set/c-tor, copy c-tor..include validation
 {
 
-    public int month, year, dayInMonth, nanoseconds;
-
-    Date() { // no arg c-tor
+    /**
+     * @return the month
+     */
+    public int getMonth() {
+        return month;
     }
 
+    /**
+     * @return the year
+     */
+    public int getYear() {
+        return year;
+    }
+
+    /**
+     * @return the dayInMonth
+     */
+    public int getDayInMonth() {
+        return dayInMonth;
+    }
+
+    /**
+     * @return the nanoseconds
+     */
+    public int getNanoseconds() {
+        return nanoseconds;
+    }
+    private final int month, year, dayInMonth, nanoseconds;
+    
+    Date(int month, int year,int dayInMonth,int nanoseconds) {
+        this.year = year;
+        this.month = month;
+        this.dayInMonth = dayInMonth;
+        this.nanoseconds = nanoseconds;
+        validate();
+    }
+    
+    // probably not needed sionce Date is immutable
     Date(Date that) {
-        this.year = that.year;
-        this.month = that.month;
-        // remainder elided ....
+        this(that.month, that.year, that.dayInMonth, that.nanoseconds);
+        validate();
+    }
+
+    private void validate() {
+        if (month <= 0 || month > 12){
+            throw new IllegalArgumentException("...");
+        }
+        int [] monthDays = new int []{31,29,31,30,31,30,31,31,30,31,30,31};
+        if (dayInMonth <= 0 || dayInMonth > monthDays[month-1])
+        {
+            throw new IllegalArgumentException("...");
+        }
+        if (! leapYear(year) && month == 2 && dayInMonth > 28)
+        {
+           throw new IllegalArgumentException("..."); 
+        }
+    }
+
+    private boolean leapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || 
+                year % 400 ==0;
     }
 }
 

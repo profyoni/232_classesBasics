@@ -32,6 +32,23 @@ public class Main {
     
     public static void main(String[] args) {
         
+        ArrayList<Integer> intList = new ArrayList<>();
+        
+        intList.add( new Integer(5));
+        intList.add( new Integer(57));
+        intList.add( new Integer(31));
+        intList.add( 3 );
+        
+        Integer qq = intList.get(0);
+        int qqInt = qq.intValue();
+        
+        int unboxedQQ = intList.get(0);
+        
+        Integer.parseInt("");
+        
+        
+        
+        
         String [] stringList = new String[100];
         for (int i=0;i<stringList.length; i++)
         {
